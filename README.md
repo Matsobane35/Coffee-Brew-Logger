@@ -1,77 +1,61 @@
-# React + TypeScript + Vite
+# **XPL Full-stack developer bootcamp assessment**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# **Introduction**
 
-Currently, two official plugins are available:
+You’re opening a hipster ☕️micro-roastery and need a tiny app to log each brew you make.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# **Your mission**
 
-## React Compiler
+Ship a working full-stack **Coffee Brew Log app** that lets a user:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* Create a brew entry and save it to the database  
+* Read the brew log in a list view  
+* Filter the list view by brew method  
+* Edit and update a brew entry  
+* Delete a brew entry
 
-Note: This will impact Vite dev & build performances.
+# **Tech stack**
 
-## Expanding the ESLint configuration
+You may choose which technology you use, but you must include:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* A front-end framework like React, Vue, Svelte or Angular  
+* Any CSS framework  
+* A back-end framework like Node/Express, Rails, Flask, Go, Laravel etc.  
+* An ORM backed by a SQL database like MySQL, PostgreSQL or SQLite  
+* In your git repo, place your backend and frontend in their respective folders
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# **Technical requirements**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Front-end
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Split your app into sensible components.  
+* Build the UI according to the wireframe images supplied below, but feel free to make your own design decisions if you think of something better.  
+* Make sure that your UI is responsive.  
+* The title of the page should be “Brews: {brewCount}” where brewCount is the number of brews.  
+* Include validation: your brew create and brew edit forms should not allow the form to be submitted if there are blank fields.
 
-```
+### Back-end
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+* Your front-end should communicate with your back-end via a JSON API, that exposes CRUD endpoints for /api/brews.  
+* Validate that all fields are supplied before saving a record.  
+* Return the correct HTTP status codes as appropriate.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Documentation and collaboration
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Include a file Documentation.md with setup instructions and a description of the project.  
+* Keep your git history tidy and commit each feature with a descriptive commit message.
 
-```
+### Security hygiene
+
+* Don’t hardcode any secrets. You must read from ENV vars where relevant, and include a .env.example file for easy setup.
+
+### Deployment
+
+* Deploy your app using any hosting service you want, and include the URL in a file “[deployment.md](http://deployment.md)” in your repo. If you aren’t sure which host to use, [render.com](http://render.com) has a free tier you can use.  
+* If you struggle with deployment, add some notes to “[deployment.md](http://deployment.md)” including what you tried to troubleshoot and solve it.
+
+# **Wireframes**
+
+![Wireframe](./wireframe-1.png)
+![Wireframe](./wireframe-2.png)
+>>>>>>> 0182a1621639604fbae76faeaec12b35433979bc
