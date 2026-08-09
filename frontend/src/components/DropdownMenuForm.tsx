@@ -20,8 +20,8 @@ export default function DropdownMenuForm(
       </div>
       {expanded && <ul className="bg-white border border-gray-100 absolute place-self-center min-w-[95%] flex flex-col p-3 gap-1 mt-10 rounded-lg shadow-md max-h-50 overflow-scroll [&::-webkit-scrollbar]:hidden">
         <li className="flex gap-1">
-          <input onChange={e => setNewMethodInput(e.target.value.trim())} placeholder="Add new method" type="text" className="flex-1 p-1.5 text-[0.8rem] bg-white border border-gray-300 hover:border-[#449eec] rounded-md"/>
-          <button onClick={() => {onBrewingMethodSelected(newMethodInput); setExpanded(false)}} className="text-[0.8rem] bg-[#283846] rounded-md px-2.5 hover:bg-[#464f55] hover:cursor-pointer text-white">
+          <input onChange={e => setNewMethodInput(e.target.value.trim())} placeholder="Add new method" type="text" className="flex-1 py-1 px-3 text-[0.8rem] rounded-[100px] bg-white border-2 border-gray-300 hover:border-[#449eec]"/>
+          <button onClick={() => {onBrewingMethodSelected(newMethodInput); setExpanded(false)}} className="text-[0.8rem] aspect-square bg-[#283846] rounded-[50%] px-2 hover:bg-[#464f55] hover:cursor-pointer text-white">
             OK
           </button>
         </li>

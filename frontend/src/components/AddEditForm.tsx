@@ -10,8 +10,10 @@ export default function AddEditForm(
   { brew, methodsData, setShowPopup, onAdded, onEdited, onDeleted } : AddEditProps
 ) {
 
+  /* When the user clicks the number of stars already selected, the selection clears */
   function updateRatingIcons(indexClicked: number) {
-    setRatingIcons([...Array(indexClicked + 1).fill(icon_rating_on), ...Array(4 - indexClicked).fill(icon_rating_off)])
+    setRatingIcons(indexClicked + 1 === ratingIcons.filter(icon => icon === icon_rating_on).length ? Array(5).fill(icon_rating_off) : 
+    [...Array(indexClicked + 1).fill(icon_rating_on), ...Array(4 - indexClicked).fill(icon_rating_off)])
   }
 
   const [expanded, setExpanded] = useState(false)
@@ -59,7 +61,7 @@ export default function AddEditForm(
     <div onClick={() => setShowPopup(false)} className="flex items-center justify-center fixed bg-black/40 w-screen min-h-screen z-20">
       <div onClick={e => e.stopPropagation()} className="px-5 pb-5 h-fit w-screen max-w-125 flex flex-col rounded-xl bg-white shadow-lg">
         <div className="flex items-center justify-between py-5">
-          <p className="size-fit text-black text-[1.5rem]">{brew.beans_used.trim() ? "Edit a brew" : "Add a brew"}</p>
+          <p className="size-fit text-black text-[1.5rem]">{brew.beans_used.trim() ? "Edit brew" : "Add a brew"}</p>
           <button onClick={() => setShowPopup(false)}>
             <X size={32} className="text-black p-1.5 rounded-md hover:bg-gray-200 hover:cursor-pointer"/>
           </button>
@@ -92,7 +94,7 @@ export default function AddEditForm(
           </div>
         </div>
         <div className="mt-6 flex gap-2">
-          {brew.beans_used.trim() && <button onClick={() => {onDeleted(brew); setShowPopup(false)}} className="px-8 py-1.5 text-[0.7rem] bg-red-800 rounded-[100px] text-white hover:bg-red-500 hover:cursor-pointer">
+          {brew.beans_used.trim() && <button onClick={() => {onDeleted(brew); setShowPopup(false)}} className="px-6 py-1.5 text-[0.7rem] bg-red-800 rounded-[100px] text-white hover:bg-red-500 hover:cursor-pointer">
             Delete
           </button>}
           <button onClick={() => {
@@ -117,7 +119,7 @@ export default function AddEditForm(
               notes: newBrew.notes.trim()
             });
             !isInvalidEntry() && setShowPopup(false)
-            }} className="px-8 py-1.5 text-[0.7rem] bg-black rounded-[100px] text-white hover:bg-gray-800 hover:cursor-pointer">
+            }} className="px-6 py-1.5 text-[0.7rem] bg-black rounded-[100px] text-white hover:bg-gray-800 hover:cursor-pointer">
             Save
           </button>
         </div>
