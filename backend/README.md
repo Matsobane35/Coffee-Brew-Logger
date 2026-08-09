@@ -1,6 +1,7 @@
 Database table-creating command:
 
-CREATE TABLE coffee_brews(,
+CREATE TABLE coffee_brews(
+    &emsp;&emsp;
     &emsp;&emsp;brew_id INTEGER PRIMARY KEY,  
     &emsp;&emsp;beans_used TEXT NOT NULL,  
     &emsp;&emsp;brewing_method TEXT NOT NULL,  
@@ -9,4 +10,6 @@ CREATE TABLE coffee_brews(,
     &emsp;&emsp;rating INTEGER,  
     &emsp;&emsp;notes TEXT,
     &emsp;&emsp;CONSTRAINT check_rating CHECK (rating >=0 AND rating <=5),
+    &emsp;&emsp;
+    
 )

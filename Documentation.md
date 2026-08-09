@@ -19,12 +19,12 @@ This project features a brew-logging application for a roastery, with a responsi
 
 * Check out the README.md file in the backend folder for instructions on how to create your database schema
 * A .env.example file is included to help you set up the connection between the back-end server and your database (MUST READ)
-* If you are using a different database that postgresql:
+* If you are using a different database than postgresql:
     * Adjust the Drizzle import statement in database.js to fit your database type
     * If necessary, adjust the Drizzle dialect used in main.js to fit your database type
-    * Modify parts of the .env.example file, such as host, port and username, to fit your database type
+    * Modify parts of the .env.example file, such as host, port and username, to fit your database
 * In addition, ensure that Node.js (and an NPM package manager) are installed on your machine
 
 # **Online Version**
-* You can also interact with the online version of this application [here](https://stirring-llama-86a73c.netlify.app). This version uses the browser's localstorage of to carry out CRUD operations, making sure the records still exist every time you revisit the website.
+* You can also interact with the online version of this application [here](https://stirring-llama-86a73c.netlify.app). This version uses the browser's localstorage to carry out CRUD operations, making sure that the records still exist every time you refresh the website.
 
