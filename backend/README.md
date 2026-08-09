@@ -1,15 +1,14 @@
 Database table-creating command:
 
+```sql
 CREATE TABLE coffee_brews(
-    &emsp;&emsp;
-    &emsp;&emsp;brew_id INTEGER PRIMARY KEY,  
-    &emsp;&emsp;beans_used TEXT NOT NULL,  
-    &emsp;&emsp;brewing_method TEXT NOT NULL,  
-    &emsp;&emsp;coffee_content TEXT NOT NULL,  
-    &emsp;&emsp;water_content TEXT NOT NULL,  
-    &emsp;&emsp;rating INTEGER,  
-    &emsp;&emsp;notes TEXT,
-    &emsp;&emsp;CONSTRAINT check_rating CHECK (rating >=0 AND rating <=5),
-    &emsp;&emsp;
-    
-)
+    brew_id INTEGER PRIMARY KEY, 
+    beans_used TEXT NOT NULL, 
+    brewing_method TEXT NOT NULL, 
+    coffee_content TEXT NOT NULL, 
+    water_content TEXT NOT NULL, 
+    rating INTEGER, 
+    notes TEXT, 
+    CONSTRAINT check_rating CHECK (rating >=0 AND rating <=5)
+);
+```
