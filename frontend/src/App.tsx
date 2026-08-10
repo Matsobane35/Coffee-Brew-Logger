@@ -169,7 +169,10 @@ function App() {
           setShowPopup={setShowPopup}
           setClickedItem={setNewClickedItem} />
         )}
-        <li className="h-fit py-4 border-t border-gray-300"><p className="text-[0.8rem] w-6 h-6" /></li>
+        <li className="h-fit py-4 border-t border-gray-300">
+          <p className="text-[0.8rem] w-6 h-6" />
+          {brewData.length === 0 && <p className="text-[0.9rem] text-gray-300 font-semibold place-self-center absolute">The log is currently empty</p>}
+          </li>
       </ul>
       {/* This page indicator footer is scheduled to appear only when the data size exceeds the page limit */}
       {brewData.length > pageLimit && !methodToFilter && <div className="z-5 fixed left-0 bottom-0 bg-black/30 w-full h-fit py-4 px-12 overflow-x-scroll scrollbar-none">
