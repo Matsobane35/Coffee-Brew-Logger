@@ -63,12 +63,12 @@ export default function AddEditForm(
         <div className="flex items-center justify-between py-5">
           <p className="size-fit text-black text-[1.5rem]">{brew.beans_used.trim() ? "Edit brew" : "Add a brew"}</p>
           <button onClick={() => setShowPopup(false)}>
-            <X size={32} className="text-black p-1.5 rounded-md hover:bg-gray-200 hover:cursor-pointer"/>
+            <X size={32} className="text-black p-1.5 rounded-[50%] hover:bg-gray-200 hover:cursor-pointer"/>
           </button>
         </div>
         <div className="flex flex-col">
           <p className="text-[0.9rem]">Beans<sup>*</sup></p>
-          <input onChange={e => setBeansInput(e.target.value)} value={beansInput} className="border border-gray-300 rounded-md text-[0.9rem] py-1 px-2 w-full hover:border-[#449eec]"/>
+          <input onChange={e => setBeansInput(e.target.value)} value={beansInput} className="form-input-field"/>
           <p className="text-[0.9rem] mt-2">Brewing method<sup>*</sup></p>
           <DropdownMenuForm
           expanded = {expanded}
@@ -78,16 +78,16 @@ export default function AddEditForm(
           onBrewingMethodSelected={setMethodInput}/>
           <div className="flex items-center justify-between gap-3 mt-2">
             <div className="flex flex-col flex-1">
-              <p className="text-[0.9rem]">Coffee (grams)<sup>*</sup></p>
-              <input onChange={e => setCoffeeGramsInput(e.target.value.trim())} value={coffeeGramsInput} className="border border-gray-300 rounded-md text-[0.9rem] py-1 px-2 w-full hover:border-[#449eec]"/>
+              <p className="text-[0.9rem] line-clamp-1">Coffee (grams)<sup>*</sup></p>
+              <input onChange={e => setCoffeeGramsInput(e.target.value.trim())} value={coffeeGramsInput} className="form-input-field"/>
             </div>
             <div className="flex flex-col flex-1">
-              <p className="text-[0.9rem]">Water (grams)<sup>*</sup></p>
-              <input onChange={e => setWaterGramsInput(e.target.value.trim())} value={waterGramsInput} className="border border-gray-300 rounded-md text-[0.9rem] py-1 px-2 w-full hover:border-[#449eec]"/>
+              <p className="text-[0.9rem] line-clamp-1">Water (grams)<sup>*</sup></p>
+              <input onChange={e => setWaterGramsInput(e.target.value.trim())} value={waterGramsInput} className="form-input-field"/>
             </div>
           </div>
           <p className="text-[0.9rem] mt-2">Tasting notes</p>
-          <input onChange={e => setNotesInput(e.target.value)} value={notesInput} type="text" className="border border-gray-300 rounded-md text-[0.9rem] py-1 px-2 w-full hover:border-[#449eec]"/>
+          <input onChange={e => setNotesInput(e.target.value)} value={notesInput} type="text" className="form-input-field"/>
           <p className="text-[0.9rem] mt-4 place-self-center">Select a rating</p>
           <div className="flex w-fit gap-2 place-self-center mt-0.5">
             {ratingIcons.map((icon, index) => <img onClick={() => updateRatingIcons(index)} key={index} src={icon} className="size-8 hover:cursor-pointer hover:scale-[120%] transition-transform duration-150 ease-out"/>)}
