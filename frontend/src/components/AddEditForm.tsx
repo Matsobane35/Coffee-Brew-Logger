@@ -45,7 +45,7 @@ export default function AddEditForm(
 
   return (
     <div onAnimationEnd={(e) => {if (e.animationName === "form-slide-out") setShowForm(false)}} className={`${animateFormIn ? "animate-form-slide-in" : "animate-form-slide-out"} flex items-center justify-center fixed bg-white w-screen min-h-screen z-20`}>
-      <div onClick={e => e.stopPropagation()} className="px-5 min-h-screen w-screen max-w-125 flex flex-col bg-white relative">
+      <div onClick={e => e.stopPropagation()} className="px-5 pb-5 min-h-screen w-screen max-w-125 flex flex-col bg-white relative">
         <div className="z-5 px-5 h-18 absolute w-full top-0 left-0 flex items-center justify-between">
           <p className="size-fit text-black text-[1.5rem] line-clamp-1">{brew.beans_used.trim() ? "Edit brew" : "Add a brew"}</p>
           <button onClick={() => setAnimateFormIn(false)}>
@@ -94,16 +94,16 @@ export default function AddEditForm(
           <div className="flex w-fit gap-2">
             {ratingIcons.map((icon, index) => <img onClick={() => updateRatingIcons(index)} key={index} src={icon} className="size-8 hover:cursor-pointer hover:scale-[120%] transition-transform duration-150 ease-out"/>)}
           </div>
-          <div className="h-40"/>
         </div>
-        <div className="z-5 absolute left-0 bottom-0 w-full flex flex-col pb-4 px-4">
-          {showErrorMessage && (!requiredFields[0] || !requiredFields[1] || !requiredFields[2] || !requiredFields[3]) && <div className="flex items-center bg-[#ff0000]/20 rounded-[100px] p-3 mb-5">
+        <div className="w-full mt-4 flex flex-col relative">
+          <div className="h-16"/>
+          {showErrorMessage && (!requiredFields[0] || !requiredFields[1] || !requiredFields[2] || !requiredFields[3]) && <div className="z-5 absolute top-0 left-0 flex items-center bg-[#ff0000]/20 rounded-[100px] px-3 w-full h-16 mb-5">
             <XCircle size={18} color="#ff2525"/>
             <p className="flex-1 py-2 text-[#ff2525] font-semibold text-xs mx-2 text-nowrap overflow-x-auto custom-scrollbar">
               {validateEntries(beansInput, methodInput, coffeeGramsInput, waterGramsInput)[1]}
             </p>
           </div>}
-          <div className="flex gap-2">
+          <div className="flex gap-2 mt-4">
             {brew.beans_used.trim() && <button onClick={() => {onDeleted(brew); setAnimateFormIn(false)}} className="px-6 py-1.5 sm:text-[0.7rem] text-[0.75rem] bg-red-800 rounded-[100px] text-white hover:bg-red-500 hover:cursor-pointer">
               Delete
             </button>}

@@ -26,5 +26,5 @@ This project features a brew-logging application for a roastery, with a responsi
 * In addition, ensure that Node.js (and an NPM package manager) are installed on your machine
 
 # **Online Version**
-* You can also interact with the online version of this application [here](https://gregarious-hotteok-2a5760.netlify.app/). This version uses the browser's localstorage to carry out CRUD operations, making sure that the records still exist every time you refresh the website.
+* You can also interact with the online version of this application [here](https://spiffy-melomakarona-64664e.netlify.app/). This version uses the browser's localstorage to carry out CRUD operations, making sure that the records still exist every time you refresh the website.
 
