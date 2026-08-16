@@ -1,24 +1,28 @@
 import image_coffee from "../assets/image_coffee.png";
 import image_water from "../assets/image_water.png";
-import icon_rating_on from "../assets/icon_rating_on.svg"
+import { ratingColours } from "../data/data";
 import type { BrewItemProps } from "../prop_types";
 
-export default function BrewItem({brew, setShowPopup, setClickedItem}: BrewItemProps) {
+export default function BrewItem({brew, setShowForm, setClickedItem}: BrewItemProps) {
   return (
-    <li onClick={() => {setClickedItem(brew.brew_id); setShowPopup(true)}} className="flex border-t border-gray-300 py-3 gap-3 items-center hover:cursor-pointer hover:bg-[#f0f0f0]">
+    <li onClick={() => {setClickedItem(brew.brew_id); setShowForm(true)}} className="flex border border-gray-300 pt-2.5 pb-3 px-2.5 gap-2.5 items-center rounded-2xl mb-2 hover:cursor-pointer hover:bg-[#f0f0f0]">
       <div className="relative size-8 flex items-center justify-center">
-        <img className="size-full" src={icon_rating_on}/>
+        <svg className="size-full" xmlns="http://w3.org" viewBox="0 0 24 24">
+          <path d="M8.22,7.7 l3.11,-5.455 a0.75,0.75 0,0 1,1.34 0 l3.11,5.455 l6.18,1.29 a0.75,0.75 0,0 1,0.4 1.26 l-4.24,4.66 l0.69,6.25 a0.75,0.75 0,0 1,-1.1 0.77 l-5.71,-2.575 l-5.71,2.575 a0.75,0.75 0,0 1,-1.1 -0.77 l0.69,-6.25 l-4.24,-4.66 a0.75,0.75 0,0 1,0.4 -1.26 l6.18,-1.29" fill={`${ratingColours[brew.rating]}`} stroke={`${ratingColours[brew.rating]}`} strokeWidth="2" strokeLinecap="round"/>
+        </svg>
         <p className="absolute text-[0.8rem] text-black font-semibold">{brew.rating}</p>
       </div>
       <div className="flex flex-col gap-1 flex-1">
         <p className="line-clamp-1 font-bold">{brew.beans_used}</p>
-        <div className="flex gap-2">
-          <p className="line-clamp-1 px-2.5 py-1 text-[0.7rem] border-2 border-gray-300 rounded-[100px] one-line">{brew.brewing_method}</p>
-          <div className="px-2.5 py-1 border-2 border-gray-300 rounded-[100px] flex justify-center gap-1 items-center">
+        <div className="flex items-center gap-1 bg-gray-100 rounded-[100px] w-fit py-1.5 px-3 border-2 border-white">
+          <p className="line-clamp-1 text-[0.7rem]">{brew.brewing_method}</p>
+          <svg xmlns="http://w3.org" viewBox="0 0 24 24" height="16"><path d="M12,2 v20" fill="none" stroke="#666" strokeWidth="3" strokeLinecap="round"/></svg>
+          <div className="flex justify-center gap-1 items-center">
             <img src={image_coffee} className="size-3.5"/>
             <p className="text-[0.7rem]">{brew.coffee_content}<span>g</span></p>
           </div>
-          <div className="px-2.5 py-1 border-2 border-gray-300 rounded-[100px] flex justify-center gap-1 items-center">
+          <svg xmlns="http://w3.org" viewBox="0 0 24 24" height="16"><path d="M12,2 v20" fill="none" stroke="#666" strokeWidth="3" strokeLinecap="round"/></svg>
+          <div className="flex justify-center gap-1 items-center">
             <img src={image_water} className="size-2.5"/>
             <p className="text-[0.7rem]">{brew.water_content}<span>g</span></p>
           </div>

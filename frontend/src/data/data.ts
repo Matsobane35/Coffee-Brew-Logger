@@ -14,6 +14,8 @@ export const dummyBrew: Brew = {
     brewing_method: "",
     coffee_content: "",
     water_content: "",
-    rating: 0,
+    rating: 1,
     notes: ""
 }
+
+export const ratingColours = ["", "#f83737", "#f58931", "#f0ed3f", "#89d434", "#07ad1d"]
