@@ -1,7 +1,7 @@
 export default function HotCoffeeSVG() {
   return (
     <div className="w-fit h-fit relative place-self-center mt-5">
-      <div className="z-5 w-full h-25 absolute bg-linear-to-b from-white to-transparent via-white/80"/>
+      <div className="z-5 w-full h-25 absolute bg-linear-to-b from-white to-transparent via-white/85"/>
       <svg xmlns="http://w3.org" viewBox="0 0 50 60" width="160px">
         <path d="M8.8,35 v5 c0 12,5 18,16 18 c11 0,16 -6,16 -18 v-5 m0,0 a60,60 0,0 1,-32 0 m0,0 a60,60 0,0 1,32 0 m0,2 c10 -2,10 10,-2.5 15" fill="none" stroke="#d1d5dc" strokeWidth="4" strokeLinecap="round"/>
       </svg>
