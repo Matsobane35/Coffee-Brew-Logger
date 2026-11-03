@@ -49,7 +49,7 @@ export default function AddEditForm(
         <div className="z-5 px-5 h-18 absolute w-full top-0 left-0 flex items-center justify-between">
           <p className="size-fit text-black text-[1.5rem] line-clamp-1">{brew.beans_used.trim() ? "Edit brew" : "Add a brew"}</p>
           <button onClick={() => setAnimateFormIn(false)}>
-            <X size={32} className="text-black p-1.5 rounded-[50%] hover:bg-[#eaeaea] hover:cursor-pointer"/>
+            <X className="h-10 w-10 p-2.5 text-black rounded-[50%] hover:bg-[#eaeaea] hover:cursor-pointer"/>
           </button>
         </div>
         <div className="flex flex-col">
@@ -58,7 +58,7 @@ export default function AddEditForm(
           <input 
             value={beansInput}
             onChange={e => {setBeansInput(e.target.value); requiredFields[0] = e.target.value.trim().length > 0}} 
-            className={`${requiredFields[0] || !showErrorMessage ? "border-[#d1d5dc] hover:border-[#449eec]" : "animate-red-flash border-[#ff6666] hover:border-[#ff6666]"} sm:py-1 sm:px-2 form-input-field`}/>
+            className={`${requiredFields[0] || !showErrorMessage ? "border-[#d1d5dc] hover:border-[#449eec]" : "animate-red-flash border-[#ff6666] hover:border-[#ff6666]"} sm:h-8.5 sm:px-2 form-input-field`}/>
           <p className="text-[0.9rem] mt-2">Brewing method<sup>*</sup></p>
           <DropdownMenuForm
           expanded={dropdownExpanded}
@@ -75,21 +75,21 @@ export default function AddEditForm(
               <input 
                 value={coffeeGramsInput}
                 onChange={e => {setCoffeeGramsInput(e.target.value.trim()); requiredFields[2] = validInteger(e.target.value.trim())}} 
-                className={`${requiredFields[2] || !showErrorMessage ? "border-[#d1d5dc] hover:border-[#449eec]" : "animate-red-flash border-[#ff6666] hover:border-[#ff6666]"} sm:py-1 sm:px-2 form-input-field`}/>
+                className={`${requiredFields[2] || !showErrorMessage ? "border-[#d1d5dc] hover:border-[#449eec]" : "animate-red-flash border-[#ff6666] hover:border-[#ff6666]"} sm:h-8.5 sm:px-2 form-input-field`}/>
             </div>
             <div className="flex flex-col flex-1">
               <p className="text-[0.9rem] line-clamp-1">Water (grams)<sup>*</sup></p>
               <input 
                 value={waterGramsInput}
                 onChange={e => {setWaterGramsInput(e.target.value.trim()); requiredFields[3] = validInteger(e.target.value.trim())}}  
-                className={`${requiredFields[3] || !showErrorMessage ? "border-[#d1d5dc] hover:border-[#449eec]" : "animate-red-flash border-[#ff6666] hover:border-[#ff6666]"} sm:py-1 sm:px-2 form-input-field`}/>
+                className={`${requiredFields[3] || !showErrorMessage ? "border-[#d1d5dc] hover:border-[#449eec]" : "animate-red-flash border-[#ff6666] hover:border-[#ff6666]"} sm:h-8.5 sm:px-2 form-input-field`}/>
             </div>
           </div>
           <p className="text-[0.9rem] mt-2">Tasting notes</p>
           <input 
             value={notesInput}
             onChange={e => setNotesInput(e.target.value)}  
-            className="sm:py-1 sm:px-2 form-input-field border-[#d1d5dc] hover:border-[#449eec]"/>
+            className="sm:h-8.5 sm:px-2 form-input-field border-[#d1d5dc] hover:border-[#449eec]"/>
           <p className="text-[0.9rem] mt-2">Select a rating</p>
           <div className="flex w-fit gap-2">
             {ratingIcons.map((icon, index) => <img onClick={() => updateRatingIcons(index)} key={index} src={icon} className="size-8 hover:cursor-pointer hover:scale-[120%] transition-transform duration-150 ease-out"/>)}
@@ -104,7 +104,7 @@ export default function AddEditForm(
             </p>
           </div>}
           <div className="flex gap-2">
-            {brew.beans_used.trim() && <button onClick={() => {onDeleted(brew); setAnimateFormIn(false)}} className="px-6 py-1.5 sm:text-[0.7rem] text-[0.75rem] bg-red-800 rounded-[100px] text-white hover:bg-red-500 hover:cursor-pointer">
+            {brew.beans_used.trim() && <button onClick={() => {onDeleted(brew); setAnimateFormIn(false)}} className="px-6 h-9.5 sm:h-8.5 text-[0.75rem] bg-red-800 rounded-[100px] text-white hover:bg-red-500 hover:cursor-pointer">
               Delete
             </button>}
             <button onClick={() => {
@@ -112,10 +112,10 @@ export default function AddEditForm(
               (setRequiredFields(validateEntries(beansInput, methodInput, coffeeGramsInput, waterGramsInput)[0] as boolean[]), setShowErrorMessage(true)) : 
               brew.brew_id > 0 ? onEdited(trimAll(newBrew)) : onAdded(trimAll(newBrew));
               !validateEntries(beansInput, methodInput, coffeeGramsInput, waterGramsInput)[1] && setAnimateFormIn(false)
-              }} className="px-6 py-1.5 sm:text-[0.7rem] text-[0.75rem] bg-black rounded-[100px] text-white hover:bg-gray-800 hover:cursor-pointer">
+              }} className="px-6 h-9.5 sm:h-8.5 text-[0.75rem] bg-black rounded-[100px] text-white hover:bg-gray-800 hover:cursor-pointer">
               Save
             </button>
-            <button onClick={() => setAnimateFormIn(false)} className="px-6 py-1.5 sm:text-[0.7rem] text-[0.75rem] border-2 border-black bg-white rounded-[100px] text-black hover:bg-gray-500 hover:border-gray-500 hover:cursor-pointer ml-auto">
+            <button onClick={() => setAnimateFormIn(false)} className="px-6 h-9.5 sm:h-8.5 text-[0.75rem] border-2 border-black bg-white rounded-[100px] text-black hover:bg-[#c0c0c0] hover:border-[#c0c0c0] hover:cursor-pointer ml-auto">
               Cancel
             </button>
           </div>

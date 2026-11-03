@@ -16,7 +16,7 @@ export default function DropdownMenuHome(
         <p className="text-[0.9rem] text-black line-clamp-1">
           {brewingMethod ? `${brewingMethod} (${methodsData.filter(method => method === brewingMethod).length})` : "- All brewing methods -"}
         </p>
-        <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="1rem" height="1rem">
+        <svg className="min-h-4 sm:min-h-3 min-w-4 sm:min-w-3" xmlns="http://w3.org" viewBox="0 0 24 24" width="1rem" height="1rem">
           <g className={`${animateMenuDown ? "translate-x-2": "translate-x-0"} transition-transform duration-300 ease-out`} id="left">
             <path d="M4,8 l8,8" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
           </g>
@@ -29,13 +29,13 @@ export default function DropdownMenuHome(
         {expanded && <ul 
           onAnimationEnd={e => {if (e.animationName === "menu-slide-up") setExpanded(animateMenuDown)}} 
           className={`${animateMenuDown ? "animate-menu-slide-down" : "animate-menu-slide-up"} absolute bottom-0 shadow-md bg-white border border-gray-100 place-self-center min-w-[95%] flex flex-col p-3 gap-1 rounded-xl max-h-50 overflow-scroll [&::-webkit-scrollbar]:hidden`}>
-          <li onClick={() => {onBrewingMethodSelected(""); setAnimateMenuDown(false)}} className="p-1.5 text-[0.8rem] text-gray-500 w-full bg-[#f0f0f0] hover:bg-[#283846] rounded-md hover:text-white hover:cursor-pointer">
-            - All brewing methods -
+          <li onClick={() => {onBrewingMethodSelected(""); setAnimateMenuDown(false)}}>
+            <p className="flex items-center h-9 sm:h-8 px-2 text-[0.8rem] text-gray-500 w-full bg-[#f0f0f0] hover:bg-[#283846] rounded-md hover:text-white hover:cursor-pointer">- All brewing methods -</p>
           </li>
           {/* Use Set() to get a list of distinct brewing methods for filtering */}
           {[...new Set(methodsData)].map((method, index) => 
-            <li key={index} onClick={() => {onBrewingMethodSelected(method); setAnimateMenuDown(false)}} className="p-1.5 text-[0.8rem] w-full bg-[#f0f0f0] hover:bg-[#283846] rounded-md hover:text-white hover:cursor-pointer">
-              {method}
+            <li key={index} onClick={() => {onBrewingMethodSelected(method); setAnimateMenuDown(false)}}>
+              <p className="flex items-center h-9 sm:h-8 px-2 text-[0.8rem] w-full bg-[#f0f0f0] hover:bg-[#283846] rounded-md hover:text-white hover:cursor-pointer">{method}</p>
             </li>)}
         </ul>}
       </div>

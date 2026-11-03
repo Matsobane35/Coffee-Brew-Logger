@@ -18,4 +18,4 @@ export const dummyBrew: Brew = {
     notes: ""
 }
 
-export const ratingColours = ["", "#f83737", "#f58931", "#f0ed3f", "#89d434", "#07ad1d"]
+export const ratingColours = ["", "#f83737", "#f58931", "#e4d82d", "#89d434", "#07ad1d"]

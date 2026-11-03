@@ -9,8 +9,7 @@ import HotCoffeeSVG from "./components/HotCoffeeSVG"
 function App() {
 
   // Separate data into pages and only render one page at a time to boost performance
-  // in case there are a lot of records in the database. Page numbers will appear on the footer 
-  // only when the data size exceeds the page limit
+  // in case there are a lot of records in the database. 
   const pageLimit = 30
   const serverPort = 5000
   const toastDuration = 4000
@@ -68,11 +67,11 @@ function App() {
             toast.success(`Brew successfully added!`, {duration: toastDuration})
           }
           else {
-            toast.error("Failed to access database. Please try again.", {duration: toastDuration})
+            toast.error(`Operation failed. Please try again.`, {duration: toastDuration})
           }
         }
         catch (error) {
-          toast.error("A network error occurred. Please try again.", {duration: toastDuration})
+          toast.error("Connection lost. Please try again later.", {duration: toastDuration})
         }
       }
       insertIntoDB()
@@ -96,11 +95,11 @@ function App() {
             setMethodsData(oldData => oldData.toSpliced(oldData.indexOf(clickedItem.brewing_method), 1, itemToUpdate.brewing_method))
           }
           else {
-            toast.error(`Failed to access database. Please try again.`, {duration: toastDuration})
+            toast.error(`Operation failed. Please try again.`, {duration: toastDuration})
           }
         }
         catch (error) {
-          toast.error("A network error occurred. Please try again.", {duration: toastDuration})
+          toast.error("Connection lost. Please try again later.", {duration: toastDuration})
         }
       }
       updateInDB()
@@ -124,11 +123,11 @@ function App() {
             toast.success(`Brew successfully deleted!`, {duration: toastDuration})
           }
           else {
-            toast.error(`Failed to access database. Please try again.`, {duration: toastDuration})
+            toast.error(`Operation failed. Please try again.`, {duration: toastDuration})
           }
         }
         catch (error) {
-          toast.error("A network error occurred. Please try again.", {duration: toastDuration})
+          toast.error("Connection lost. Please try again later.", {duration: toastDuration})
         }
       }
       deleteFromDB()
