@@ -9,7 +9,8 @@ export default function DropdownMenuHome(
     animateMenuDown,
     setAnimateMenuDown,
     onBrewingMethodSelected
-  }: DropdownProps) {
+  }: DropdownProps
+) {
   return (
     <div className="flex flex-col relative z-5 w-full max-w-195">
       <div onClick={() => {setAnimateMenuDown(!animateMenuDown); if (!expanded) setExpanded(true)}} className={`z-5 ${expanded ? "outline-2" : "outline-none"} outline-[#449eec] -outline-offset-2 bg-white flex items-center justify-between border-gray-300 border-2 rounded-[100px] px-3 py-1.5 hover:border-[#449eec] hover:cursor-pointer`}>

@@ -15,6 +15,13 @@ function App() {
   const toastDuration = 4000
 
   const [brewData, setBrewData] = useState<Brew[]>([])
+  const [clickedItem, setClickedItem] = useState(dummyBrew)
+	const [showForm, setShowForm] = useState(false)
+	const [nextId, setNextId] = useState(Math.max(...brewData.map(brew => brew.brew_id), 0) + 1)
+	const [methodsData, setMethodsData] = useState(brewData.map(brew => brew.brewing_method))
+	const [methodToFilter, setMethodToFilter] = useState("")
+	const [dropdownExpanded, setDropdownExpanded] = useState(false)
+  const [animateMenuDown, setAnimateMenuDown] = useState(false)
 
   // Retrieving data from the database on initial app start
 	useEffect(() => {
@@ -31,13 +38,7 @@ function App() {
 		getCoffeeData()
 	}, [])
 
-	const [clickedItem, setClickedItem] = useState(dummyBrew)
-	const [showForm, setShowForm] = useState(false)
-	const [nextId, setNextId] = useState(Math.max(...brewData.map(brew => brew.brew_id), 0) + 1)
-	const [methodsData, setMethodsData] = useState(brewData.map(brew => brew.brewing_method))
-	const [methodToFilter, setMethodToFilter] = useState("")
-	const [dropdownExpanded, setDropdownExpanded] = useState(false)
-  const [animateMenuDown, setAnimateMenuDown] = useState(false)
+	
 
   // I could've used useRef() here for variables that are used to update the database
   // but it was behaving unreliably on initial app start
@@ -70,7 +71,7 @@ function App() {
             toast.error(`Operation failed. Please try again.`, {duration: toastDuration})
           }
         }
-        catch (error) {
+        catch {
           toast.error("Connection lost. Please try again later.", {duration: toastDuration})
         }
       }
@@ -98,7 +99,7 @@ function App() {
             toast.error(`Operation failed. Please try again.`, {duration: toastDuration})
           }
         }
-        catch (error) {
+        catch {
           toast.error("Connection lost. Please try again later.", {duration: toastDuration})
         }
       }
@@ -126,7 +127,7 @@ function App() {
             toast.error(`Operation failed. Please try again.`, {duration: toastDuration})
           }
         }
-        catch (error) {
+        catch {
           toast.error("Connection lost. Please try again later.", {duration: toastDuration})
         }
       }
@@ -159,7 +160,7 @@ function App() {
 		setClickedItem(brewData.filter(brew => brew.brew_id === itemId)[0])
 	}
   
-  document.title = `Brews: ${brewData.length}`
+  useEffect(() => { document.title = `Brews: ${brewData.length}` }, [brewData])
 
   return (
     <div className="px-3 min-h-screen flex flex-col items-center min-w-fit">
@@ -168,7 +169,7 @@ function App() {
       <div className="bg-white flex flex-col items-center gap-3.5 fixed top-0 left-0 w-full px-5 h-32 z-15">
         <div className="flex pt-6 items-center justify-between w-full max-w-195">
           <p className="text-[1.5rem] line-clamp-1">Brew log</p>
-          <button onClick={() => { setShowForm(true), setClickedItem(dummyBrew) }} className="text-white bg-black text-[0.75rem] line-clamp-1 font-semibold h-fit w-fit py-1.5 px-6 border-2 transition-colors ease-out duration-200 border-black hover:bg-white hover:text-black hover:cursor-pointer rounded-[100px]">
+          <button onClick={() => { setShowForm(true); setClickedItem(dummyBrew) }} className="text-white bg-black text-[0.75rem] line-clamp-1 font-semibold h-fit w-fit py-1.5 px-6 border-2 transition-colors ease-out duration-200 border-black hover:bg-white hover:text-black hover:cursor-pointer rounded-[100px]">
             Add new
           </button>
         </div>
